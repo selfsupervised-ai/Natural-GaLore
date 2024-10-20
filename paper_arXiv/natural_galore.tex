@@ -1,0 +1,101 @@
+
+\documentclass{article} %
+\usepackage{iclr_template/iclr2025_conference,times}
+
+\input{iclr_template/math_commands.tex}
+\input{iclr_template/packages}
+\input{iclr_template/macros}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{forest}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{algpseudocode}
+\usepackage{float}
+\restylefloat{table}
+\usetikzlibrary{shapes.geometric, arrows}
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+\usepackage[capitalize,noabbrev]{cleveref}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\usepackage{color, colortbl}
+\definecolor{LightCyan}{rgb}{0.94,1,1}
+
+\usepackage[textsize=tiny]{todonotes}
+\usepackage{multirow}
+
+\usepackage{graphicx}
+\usepackage{pifont}
+\usepackage{xcolor,colortbl}
+\usepackage{multicol}
+\usepackage{tablefootnote}
+\usepackage[para,online,flushleft]{threeparttable}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\usepackage{xspace}
+
+\usepackage{setspace}
+
+
+\usepackage[many]{tcolorbox}
+
+\usepackage{subcaption}
+
+\usepackage{letltxmacro}
+
+\usepackage{siunitx}
+\sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
+
+\usepackage{xcolor}
+\usepackage{listings}
+
+\usepackage[ruled,vlined]{algorithm2e}
+\definecolor{commentcolor}{RGB}{110,154,155}   %
+\newcommand{\PyComment}[1]{\ttfamily\textcolor{commentcolor}{\# #1}}  %
+\newcommand{\PyCode}[1]{\ttfamily\textcolor{black}{#1}} %
+
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\newcommand{\lowrank}{Natural GaLore\xspace}
+\newcommand{\update}{\textsc{update}}
+\newcommand{\project}{\textsc{project}}
+
+\title{\lowrank{}: Accelerating GaLore for memory-efficient LLM Training and Fine-tuning}
+
+
+\author{Arijit Das \\
+ERGO Group AG \\
+Düsseldorf, Germany \\
+\texttt{arijit.das@selfsupervised.de}
+}
+
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+\arxivcopy
+\begin{document}
+
+
+\maketitle
+
+\input{sections/1_abstract.tex}
+\input{sections/2_introduction.tex}
+\input{sections/3_natural_galore.tex}
+\input{sections/4_experiments.tex}
+\input{sections/5_conclusion.tex}
+
+\bibliography{iclr_template/iclr2025_conference}
+\bibliographystyle{iclr_template/iclr2025_conference}
+
+\end{document}

@@ -1,0 +1,28 @@
+\begin{table*}[ht]
+\vspace{-3mm}
+\caption{
+Latency, size, and success rate of TinyAgent models before and after quantization. Latency is the end-to-end latency of the function calling planner, including the prompt processing time and generation.}
+\vspace{-1mm}
+\begin{center}
+\small{
+\setlength{\tabcolsep}{6pt}{
+\begin{tabular}{c|c|c|c|c}
+\toprule
+Model &	Weight Precision &	Latency (seconds)	& Model Size (GB)	& Success Rate (\%) \\
+\midrule
+GPT-3.5 & Unknown & 3.2 & Unknown & 65.04 \\
+GPT-4-Turbo & Unknown & 3.9 & Unknown & 79.08 \\
+\midrule
+\multirow{2}{*}{TinyAgent-1.1B} & 16-bit (\textit{\lowrank}) & 3.9 & 2.2 & \textbf{83.09} \\
+& 16-bit (LoRA) & 3.9 & 2.2 & 80.06 \\
+\midrule
+\multirow{1}{*}{TinyAgent-7B} & 16-bit \citep{erdogan2024tinyagent} & 19.5 & 14.5 & 84.95 \\
+\bottomrule
+\end{tabular}
+}
+}
+\end{center}
+\label{table:t2}
+\end{table*}
+
+
