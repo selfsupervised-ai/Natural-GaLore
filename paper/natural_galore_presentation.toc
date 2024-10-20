@@ -1,6 +1,0 @@
-\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
-\beamer@sectionintoc {2}{Parameter Optimization}{9}{0}{2}
-\beamer@sectionintoc {3}{Natural GaLore}{18}{0}{3}
-\beamer@sectionintoc {4}{Benchmarking Experiments}{26}{0}{4}
-\beamer@sectionintoc {5}{Application: Fine-Tuning TinyAgents}{31}{0}{5}
-\beamer@sectionintoc {6}{Conclusion}{41}{0}{6}
