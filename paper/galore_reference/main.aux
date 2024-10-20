@@ -1,0 +1,247 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{raffelExploringLimitsTransfer2023,touvronLlamaOpenFoundation2023,chowdheryPaLMScalingLanguage2022}
+\citation{lvFullParameterFinetuning2023}
+\citation{chenTrainingDeepNets2016}
+\citation{rajbhandariZeROMemoryOptimizations2020}
+\citation{dingDeltaTuningComprehensive2022}
+\citation{huLoRALowRankAdaptation2021}
+\citation{lialinReLoRAHighRankTraining2023}
+\providecommand \oddpage@label [2]{}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  {Estimated memory consumption of pre-training a LLaMA 7B model with a token batch size of 256 on a single device, without activation checkpointing and memory offloading\footnotemark [2]. Details refer to Section~\ref {sec:memory_measure}.}}}{1}{figure.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:memory_breakdown}{{1}{1}{\small {Estimated memory consumption of pre-training a LLaMA 7B model with a token batch size of 256 on a single device, without activation checkpointing and memory offloading\protect \footnotemark [2]. Details refer to Section~\ref {sec:memory_measure}.}}{figure.caption.1}{}}
+\newlabel{fig:memory_breakdown@cref}{{[figure][1][]1}{[1][1][]1}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\citation{xiaChainLoRAEfficient2024}
+\citation{lialinReLoRAHighRankTraining2023}
+\citation{huLoRALowRankAdaptation2021}
+\citation{renduchintalaTiedLoraEnhacingParameter2023,shengSLoRAServingThousands2023,zhangLORAFAMEMORYEFFICIENTLOWRANK,xiaChainLoRAEfficient2024}
+\citation{wangMultiLoRADemocratizingLoRA2023}
+\citation{dettmersQLoRAEfficientFinetuning2023}
+\citation{lialinReLoRAHighRankTraining2023}
+\citation{haoFloraLowRankAdapters2024}
+\citation{kamalakaraExploringLowRank2022,wangCuttlefishLowrankModel2023,zhaoInRankIncrementalLowRank2023}
+\citation{gur-ariGradientDescentHappens2018,larsenHowManyDegrees2022}
+\citation{leeGradientBasedMetaLearningLearned2018,chaudhryContinualLearningLowrank2020}
+\@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces \fontsize  {8pt}{9pt}\selectfont  {GaLore\xspace  {}, PyTorch-like}}}{2}{algocf.1}\protected@file@percent }
+\newlabel{alg:code_box}{{1}{2}{}{algocf.1}{}}
+\newlabel{alg:code_box@cref}{{[algocf][1][]1}{[1][1][]2}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Works}{2}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Low-rank adaptation.}{2}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Subspace learning.}{2}{section.2}\protected@file@percent }
+\citation{chenFastLowrankEstimation2015,chenNonConvexProjectedGradient2019}
+\citation{zhaoZerOInitializationInitializing2022,cossonLowRankGradientDescent2023,yang2023spectral}
+\citation{wangATOMOCommunicationefficientLearning,vogelsPowerGossipPracticalLowRank2020}
+\citation{gooneratneLowrankGradientApproximation2020,huangLowRankGradientDescent2023,modoranuErrorFeedbackCan2024}
+\citation{shazeerAdafactorAdaptiveLearning,anilMemoryEfficientAdaptive,dettmers8bitOptimizersBlockwise2021}
+\citation{dettmers8bitOptimizersBlockwise2021,liMemoryEfficientOptimizers2023}
+\citation{lvAdaLomoLowmemoryOptimization2023,lvFullParameterFinetuning2023}
+\citation{tian2020understanding}
+\citation{tian2020understanding}
+\@writefile{toc}{\contentsline {paragraph}{Projected gradient descent.}{3}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Low-rank gradient.}{3}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Memory-efficient optimization.}{3}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}GaLore\xspace  : Gradient Low-Rank Projection}{3}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Background}{3}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Low-Rank Property of Weight Gradient}{3}{subsection.3.2}\protected@file@percent }
+\newlabel{thmt@@gradientreversible@data}{{\def \theequation {\@arabic {\c@equation }}\def \theHequation {(restate \theHthmt@dummyctr )3.\@arabic {\c@equation }}\setcounter {equation}{5}}{3}{}{theorem.3.1}{}}
+\newlabel{thmt@@gradientreversible@data@cref}{{[subsection][2][3]3.2}{[1][3][]3}}
+\newlabel{thmt@@gradientreversible}{{3.2}{3}{Gradient Form of reversible models}{theorem.3.2}{}}
+\newlabel{thmt@@gradientreversible@cref}{{[theorem][2][3]3.2}{[1][3][]3}}
+\newlabel{thm:gradientreversible}{{3.2}{3}{Gradient Form of reversible models}{theorem.3.2}{}}
+\newlabel{thm:gradientreversible@cref}{{[theorem][2][3]3.2}{[1][3][]3}}
+\newlabel{eq:reversible-grad}{{6}{3}{Gradient Form of reversible models}{equation.3.6}{}}
+\newlabel{eq:reversible-grad@cref}{{[equation][6][]6}{[1][3][]3}}
+\citation{tian2023joma}
+\newlabel{thmt@@gradientlowrank@data}{{\def \theequation {\@arabic {\c@equation }}\def \theHequation {(restate \theHthmt@dummyctr )3.\@arabic {\c@equation }}\setcounter {equation}{7}}{4}{}{equation.3.7}{}}
+\newlabel{thmt@@gradientlowrank@data@cref}{{[subsection][2][3]3.2}{[1][4][]4}}
+\newlabel{thmt@@gradientlowrank}{{3.3}{4}{Gradient becomes low-rank during training}{theorem.3.3}{}}
+\newlabel{thmt@@gradientlowrank@cref}{{[lemma][3][3]3.3}{[1][4][]4}}
+\newlabel{lemma:gradientlowrank}{{3.3}{4}{Gradient becomes low-rank during training}{theorem.3.3}{}}
+\newlabel{lemma:gradientlowrank@cref}{{[lemma][3][3]3.3}{[1][4][]4}}
+\newlabel{eq:constantgradientcoeff}{{8}{4}{Gradient becomes low-rank during training}{equation.3.8}{}}
+\newlabel{eq:constantgradientcoeff@cref}{{[equation][8][]8}{[1][4][]4}}
+\newlabel{eq:stable-rank-decay}{{9}{4}{Gradient becomes low-rank during training}{equation.3.9}{}}
+\newlabel{eq:stable-rank-decay@cref}{{[equation][9][]9}{[1][4][]4}}
+\newlabel{thmt@@lowrankmid@data}{{\def \theequation {\@arabic {\c@equation }}\def \theHequation {(restate \theHthmt@dummyctr )3.\@arabic {\c@equation }}\setcounter {equation}{9}}{4}{}{equation.3.9}{}}
+\newlabel{thmt@@lowrankmid@data@cref}{{[subsection][2][3]3.2}{[1][4][]4}}
+\newlabel{thmt@@lowrankmid}{{3.4}{4}{Low-rank $G_t$}{theorem.3.4}{}}
+\newlabel{thmt@@lowrankmid@cref}{{[corollary][4][3]3.4}{[1][4][]4}}
+\newlabel{co:low-rank-mid}{{3.4}{4}{Low-rank $G_t$}{theorem.3.4}{}}
+\newlabel{co:low-rank-mid@cref}{{[corollary][4][3]3.4}{[1][4][]4}}
+\newlabel{thmt@@lowrankhigh@data}{{\def \theequation {\@arabic {\c@equation }}\def \theHequation {(restate \theHthmt@dummyctr )3.\@arabic {\c@equation }}\setcounter {equation}{9}}{4}{}{theorem.3.4}{}}
+\newlabel{thmt@@lowrankhigh@data@cref}{{[subsection][2][3]3.2}{[1][4][]4}}
+\newlabel{thmt@@lowrankhigh}{{3.5}{4}{Low-rank $G_t$ with special structure of $\cV _1$}{theorem.3.5}{}}
+\newlabel{thmt@@lowrankhigh@cref}{{[corollary][5][3]3.5}{[1][4][]4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Gradient Low-rank Projection (GaLore\xspace  {})}{4}{subsection.3.3}\protected@file@percent }
+\newlabel{eq:represent_low_rank_updates}{{10}{4}{Gradient Low-rank Projection (\textbf {\lowrank })}{equation.3.10}{}}
+\newlabel{eq:represent_low_rank_updates@cref}{{[equation][10][]10}{[1][4][]4}}
+\newlabel{thmt@@convgpg@data}{{\def \theequation {\@arabic {\c@equation }}\def \theHequation {(restate \theHthmt@dummyctr )3.\@arabic {\c@equation }}\setcounter {equation}{10}}{4}{}{theorem.3.7}{}}
+\newlabel{thmt@@convgpg@data@cref}{{[subsection][3][3]3.3}{[1][4][]4}}
+\newlabel{thmt@@convgpg}{{3.8}{4}{Convergence of \lowrank with fixed projections}{theorem.3.8}{}}
+\newlabel{thmt@@convgpg@cref}{{[theorem][8][3]3.8}{[1][4][]4}}
+\newlabel{thm:convgpg}{{3.8}{4}{Convergence of \lowrank with fixed projections}{theorem.3.8}{}}
+\newlabel{thm:convgpg@cref}{{[theorem][8][3]3.8}{[1][4][]4}}
+\newlabel{eq:converge-rt}{{11}{4}{Convergence of \lowrank with fixed projections}{equation.3.11}{}}
+\newlabel{eq:converge-rt@cref}{{[equation][11][]11}{[1][4][]4}}
+\citation{rajbhandariZeROMemoryOptimizations2020}
+\citation{kingmaAdamMethodStochastic2014}
+\newlabel{eq:svd_p_q}{{12}{5}{}{equation.3.12}{}}
+\newlabel{eq:svd_p_q@cref}{{[equation][12][]12}{[1][5][]5}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}GaLore\xspace  {} for Memory-Efficient Training}{5}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Composition of Low-Rank Subspaces}{5}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:composition-subspace}{{4.1}{5}{}{subsection.4.1}{}}
+\newlabel{sec:composition-subspace@cref}{{[subsection][1][4]4.1}{[1][5][]5}}
+\newlabel{eq:represent_low_rank_updates_multiple}{{14}{5}{}{equation.4.14}{}}
+\newlabel{eq:represent_low_rank_updates_multiple@cref}{{[equation][14][]14}{[1][5][]5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  { Learning through low-rank subspaces $\Delta W_{T_1}$ and $\Delta W_{T_2}$ using GaLore\xspace  {}. For $t_1 \in [0, T_1 - 1]$, $W$ are updated by projected gradients $\tilde  G_{t_1}$ in a subspace determined by fixed $P_{t_1}$ and $Q_{t_1}$. After $T_1$ steps, the subspace is changed by recomputing $P_{t_2}$ and $Q_{t_2}$ for $t_2 \in [T_1, T_2 - 1]$, and the process repeats until convergence.}}}{5}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:subspace_learning}{{2}{5}{\small { Learning through low-rank subspaces $\Delta W_{T_1}$ and $\Delta W_{T_2}$ using \lowrank {}. For $t_1 \in [0, T_1 - 1]$, $W$ are updated by projected gradients $\tilde G_{t_1}$ in a subspace determined by fixed $P_{t_1}$ and $Q_{t_1}$. After $T_1$ steps, the subspace is changed by recomputing $P_{t_2}$ and $Q_{t_2}$ for $t_2 \in [T_1, T_2 - 1]$, and the process repeats until convergence.}}{figure.caption.3}{}}
+\newlabel{fig:subspace_learning@cref}{{[figure][2][]2}{[1][5][]5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Memory-Efficient Optimization}{5}{subsection.4.2}\protected@file@percent }
+\newlabel{eq:low_rank_normalized_gradient}{{15}{5}{}{equation.4.15}{}}
+\newlabel{eq:low_rank_normalized_gradient@cref}{{[equation][15][]15}{[1][5][]5}}
+\citation{dettmers8bitOptimizersBlockwise2021}
+\citation{lvAdaLomoLowmemoryOptimization2023,lvFullParameterFinetuning2023}
+\citation{huLoRALowRankAdaptation2021}
+\citation{raffelExploringLimitsTransfer2023}
+\citation{lialinReLoRAHighRankTraining2023}
+\citation{zhangRootMeanSquare2019,shazeerGLUVariantsImprove2020,touvronLlamaOpenFoundation2023}
+\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces Adam with GaLore\xspace  }}{6}{algocf.2}\protected@file@percent }
+\newlabel{alg:low_rank_adam}{{2}{6}{}{algocf.2}{}}
+\newlabel{alg:low_rank_adam@cref}{{[algocf][2][]2}{[1][5][]6}}
+\@writefile{toc}{\contentsline {paragraph}{Reducing memory usage of projection matrices.}{6}{equation.4.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Combining with Existing Techniques}{6}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{8-bit optimizers.}{6}{subsection.4.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  {Comparison between GaLore\xspace  {} and LoRA. Assume $W \in \mathbb  {R}^{m \times n}$ ($m \leq n$), rank $r$.}}}{6}{table.caption.5}\protected@file@percent }
+\newlabel{tab:lora_compare}{{1}{6}{\small {Comparison between \lowrank {} and LoRA. Assume $W \in \mathbb {R}^{m \times n}$ ($m \leq n$), rank $r$.}}{table.caption.5}{}}
+\newlabel{tab:lora_compare@cref}{{[table][1][]1}{[1][6][]6}}
+\@writefile{toc}{\contentsline {paragraph}{Per-layer weight updates.}{6}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Hyperparameters of GaLore\xspace  {}}{6}{subsection.4.4}\protected@file@percent }
+\newlabel{sec:lowrank-hyperparams}{{4.4}{6}{}{subsection.4.4}{}}
+\newlabel{sec:lowrank-hyperparams@cref}{{[subsection][4][4]4.4}{[1][6][]6}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Experiments}{6}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Pre-training on C4.}{6}{figure.caption.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Architecture and hyperparameters.}{6}{figure.caption.8}\protected@file@percent }
+\citation{wangGLUEMultiTaskBenchmark2019}
+\citation{kamalakaraExploringLowRank2022}
+\citation{huLoRALowRankAdaptation2021}
+\citation{lialinReLoRAHighRankTraining2023}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  {Comparison with low-rank algorithms on pre-training various sizes of LLaMA models on C4 dataset. Validation perplexity is reported, along with a memory estimate of the total of parameters and optimizer states based on BF16 format. The actual memory footprint of GaLore\xspace  {} is reported in Fig.~\ref {fig:memory_vs_model_size}.}}}{7}{table.caption.6}\protected@file@percent }
+\newlabel{tab:lora_compare_llama}{{2}{7}{\small {Comparison with low-rank algorithms on pre-training various sizes of LLaMA models on C4 dataset. Validation perplexity is reported, along with a memory estimate of the total of parameters and optimizer states based on BF16 format. The actual memory footprint of \lowrank {} is reported in Fig.~\ref {fig:memory_vs_model_size}.}}{table.caption.6}{}}
+\newlabel{tab:lora_compare_llama@cref}{{[table][2][]2}{[1][6][]7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  {Applying GaLore\xspace  {} to different optimizers for pre-training LLaMA 1B on C4 dataset for 10K steps. Validation perplexity over training steps is reported. We apply GaLore\xspace  {} to each optimizer with the rank of 512 and 1024, where the 1B model dimension is 2048. }}}{7}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:compare_optimizer}{{3}{7}{\small {Applying \lowrank {} to different optimizers for pre-training LLaMA 1B on C4 dataset for 10K steps. Validation perplexity over training steps is reported. We apply \lowrank {} to each optimizer with the rank of 512 and 1024, where the 1B model dimension is 2048. }}{figure.caption.8}{}}
+\newlabel{fig:compare_optimizer@cref}{{[figure][3][]3}{[1][6][]7}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  {Pre-training LLaMA 7B on C4 dataset for 150K steps. Validation perplexity and memory estimate are reported.}}}{7}{table.caption.7}\protected@file@percent }
+\newlabel{tab:7b_eval}{{3}{7}{\small {Pre-training LLaMA 7B on C4 dataset for 150K steps. Validation perplexity and memory estimate are reported.}}{table.caption.7}{}}
+\newlabel{tab:7b_eval@cref}{{[table][3][]3}{[1][6][]7}}
+\@writefile{toc}{\contentsline {paragraph}{Fine-tuning on GLUE tasks.}{7}{figure.caption.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Comparison with Existing Low-Rank Methods}{7}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Full-Rank}{7}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Low-Rank}{7}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{LoRA}{7}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{ReLoRA}{7}{subsection.5.1}\protected@file@percent }
+\citation{shazeerAdafactorAdaptiveLearning,loshchilovDecoupledWeightDecay2019,dettmers8bitOptimizersBlockwise2021}
+\citation{huLoRALowRankAdaptation2021}
+\citation{rajbhandariZeROMemoryOptimizations2020}
+\citation{linDynamicMinibatchSGD2019}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}GaLore\xspace  {} with Memory-Efficient Optimizers}{8}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Scaling up to LLaMA 7B Architecture}{8}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Memory-Efficient Fine-Tuning}{8}{subsection.5.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  {Memory usage for different methods at various model sizes, evaluated with a token batch size of 256. 8-bit GaLore\xspace  {} (retaining grad) disables per-layer weight updates but stores weight gradients during training. }}}{8}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:memory_vs_model_size}{{4}{8}{\small {Memory usage for different methods at various model sizes, evaluated with a token batch size of 256. 8-bit \lowrank {} (retaining grad) disables per-layer weight updates but stores weight gradients during training. }}{figure.caption.9}{}}
+\newlabel{fig:memory_vs_model_size@cref}{{[figure][4][]4}{[1][8][]8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Measurement of Memory and Throughput}{8}{subsection.5.5}\protected@file@percent }
+\newlabel{sec:memory_measure}{{5.5}{8}{}{subsection.5.5}{}}
+\newlabel{sec:memory_measure@cref}{{[subsection][5][5]5.5}{[1][8][]8}}
+\citation{dosovitskiy2021an}
+\citation{ho2020denoising}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  {Evaluating GaLore\xspace  {} for memory-efficient fine-tuning on GLUE benchmark using pre-trained RoBERTa-Base. We report the average score of all tasks.}}}{9}{table.caption.10}\protected@file@percent }
+\newlabel{tab:fine_tuning}{{4}{9}{\small {Evaluating \lowrank {} for memory-efficient fine-tuning on GLUE benchmark using pre-trained RoBERTa-Base. We report the average score of all tasks.}}{table.caption.10}{}}
+\newlabel{tab:fine_tuning@cref}{{[table][4][]4}{[1][8][]9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \relax \fontsize  {9}{10pt}\selectfont  {Ablation study of GaLore\xspace  {} on 130M models. \textbf  {Left:} varying subspace update frequency $T$. \textbf  {Right:} varying subspace rank and training iterations.}}}{9}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:ablation}{{5}{9}{\small {Ablation study of \lowrank {} on 130M models. \textbf {Left:} varying subspace update frequency $T$. \textbf {Right:} varying subspace rank and training iterations.}}{figure.caption.11}{}}
+\newlabel{fig:ablation@cref}{{[figure][5][]5}{[1][9][]9}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Ablation Study}{9}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{How many subspaces are needed during pre-training?}{9}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{How does the rank of subspace affect the convergence?}{9}{figure.caption.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{9}{section.7}\protected@file@percent }
+\bibdata{zotero,custom}
+\bibstyle{icml_template/icml2024}
+\citation{shazeerAdafactorAdaptiveLearning}
+\citation{lvFullParameterFinetuning2023}
+\citation{lvAdaLomoLowmemoryOptimization2023}
+\citation{raeScalingLanguageModels2022,chowdheryPaLMScalingLanguage2022,wortsmanStableLowprecisionTraining,zhaiScalingVisionTransformers2022}
+\citation{tian2020understanding}
+\citation{tian2020understanding}
+\citation{tian2023joma}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Additional Related Works}{11}{appendix.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B}Proofs}{11}{appendix.B}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1}Reversibility}{11}{subsection.B.1}\protected@file@percent }
+\newlabel{sec:reversibility}{{B.1}{11}{Acknowledgments}{subsection.B.1}{}}
+\newlabel{sec:reversibility@cref}{{[subappendix][1][2147483647,2]B.1}{[1][11][]11}}
+\@writefile{loe}{\contentsline {property}{\ifthmt@listswap Property~1\else \numberline {1}Property\fi }{11}{property.1}\protected@file@percent }
+\newlabel{thmt@@gradientsoftmax@data}{{\def \theequation {\@arabic {\c@equation }}\def \theHequation {(restate \theHthmt@dummyctr )B.\@arabic {\c@equation }}\setcounter {equation}{21}}{12}{Acknowledgments}{equation.B.21}{}}
+\newlabel{thmt@@gradientsoftmax@data@cref}{{[subappendix][1][2147483647,2]B.1}{[1][12][]12}}
+\newlabel{thmt@@gradientsoftmax}{{B.2}{12}{Gradient structure of softmax loss}{theorem.B.2}{}}
+\newlabel{thmt@@gradientsoftmax@cref}{{[lemma][2][2147483647,2]B.2}{[1][12][]12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.2}Gradient becomes low-rank}{13}{subsection.B.2}\protected@file@percent }
+\citation{tian2023joma}
+\citation{tian2023joma}
+\newlabel{eq:final-sr-bound}{{39}{14}{Acknowledgments}{equation.B.39}{}}
+\newlabel{eq:final-sr-bound@cref}{{[equation][39][2147483647]39}{[1][14][]14}}
+\citation{tian2023joma}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3}Gradient Low-rank property for Transformers}{15}{subsection.B.3}\protected@file@percent }
+\newlabel{sec:transformer-low-rank}{{B.3}{15}{Acknowledgments}{subsection.B.3}{}}
+\newlabel{sec:transformer-low-rank@cref}{{[subappendix][3][2147483647,2]B.3}{[1][14][]15}}
+\newlabel{thmt@@gradientlowranktransformer@data}{{\def \theequation {\@arabic {\c@equation }}\def \theHequation {(restate \theHthmt@dummyctr )B.\@arabic {\c@equation }}\setcounter {equation}{42}}{15}{Acknowledgments}{subsection.B.3}{}}
+\newlabel{thmt@@gradientlowranktransformer@data@cref}{{[subappendix][3][2147483647,2]B.3}{[1][14][]15}}
+\newlabel{thmt@@gradientlowranktransformer}{{B.6}{15}{Gradient of Project-up in Transformer FFNs}{theorem.B.6}{}}
+\newlabel{thmt@@gradientlowranktransformer@cref}{{[lemma][6][2147483647,2]B.6}{[1][14][]15}}
+\newlabel{eq:V-dynamics}{{43}{15}{Gradient of Project-up in Transformer FFNs}{equation.B.43}{}}
+\newlabel{eq:V-dynamics@cref}{{[equation][43][2147483647]43}{[1][15][]15}}
+\newlabel{eq:alpha-dyn}{{48}{15}{Acknowledgments}{equation.B.48}{}}
+\newlabel{eq:alpha-dyn@cref}{{[equation][48][2147483647]48}{[1][15][]15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.4}Convergence of GaLore\xspace  {}}{16}{subsection.B.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {C}Details of Pre-Training Experiment}{18}{appendix.C}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.1}Architecture and Hyperparameters}{18}{subsection.C.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Hyperparameters of LLaMA models for evaluation. Data amount are specified in tokens.}}{18}{table.caption.14}\protected@file@percent }
+\newlabel{tab:llama_hyperparameters}{{5}{18}{Hyperparameters of LLaMA models for evaluation. Data amount are specified in tokens}{table.caption.14}{}}
+\newlabel{tab:llama_hyperparameters@cref}{{[table][5][2147483647]5}{[1][18][]18}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.2}Memory Estimates}{18}{subsection.C.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Memory estimates for weight parameters and optimizer states.}}{18}{table.caption.15}\protected@file@percent }
+\newlabel{tab:memory_estimate}{{6}{18}{Memory estimates for weight parameters and optimizer states}{table.caption.15}{}}
+\newlabel{tab:memory_estimate@cref}{{[table][6][2147483647]6}{[1][18][]18}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.3}Training Progression}{19}{subsection.C.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Training progression for pre-training LLaMA models on C4 dataset.}}{19}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:loss_curves}{{6}{19}{Training progression for pre-training LLaMA models on C4 dataset}{figure.caption.16}{}}
+\newlabel{fig:loss_curves@cref}{{[figure][6][2147483647]6}{[1][19][]19}}
+\citation{rajpurkarSQuAD1000002016}
+\citation{kopfOpenAssistantConversationsDemocratizing2023}
+\citation{touvronLlamaOpenFoundation2023,gemmateamGemmaOpenModels2024}
+\citation{BELLE}
+\@writefile{toc}{\contentsline {section}{\numberline {D}Fine-Tuning Experiments}{20}{appendix.D}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.1}Details of Fine-Tuning on GLUE}{20}{subsection.D.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Hyperparameters of fine-tuning RoBERTa base for GaLore\xspace  .}}{20}{table.caption.17}\protected@file@percent }
+\newlabel{tab:ft_hyperparameters}{{7}{20}{Hyperparameters of fine-tuning RoBERTa base for \lowrank }{table.caption.17}{}}
+\newlabel{tab:ft_hyperparameters@cref}{{[table][7][2147483647]7}{[1][20][]20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.2}Fine-Tuning on SQuAD dataset}{20}{subsection.D.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Evaluating GaLore on SQuAD dataset. Both Exact Match and F1 scores are reported.}}{20}{table.caption.18}\protected@file@percent }
+\newlabel{tab:fine_tuning_squad}{{8}{20}{Evaluating GaLore on SQuAD dataset. Both Exact Match and F1 scores are reported}{table.caption.18}{}}
+\newlabel{tab:fine_tuning_squad@cref}{{[table][8][2147483647]8}{[1][20][]20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.3}Fine-Tuning on OpenAssistant Conversations Dataset}{20}{subsection.D.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.4}Fine-Tuning on Belle-1M Dataset}{20}{subsection.D.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Evaluating GaLore on OpenAssistant Conversations dataset. Testing perplexity is reported.}}{21}{table.caption.19}\protected@file@percent }
+\newlabel{tab:fine_tuning_oasst}{{9}{21}{Evaluating GaLore on OpenAssistant Conversations dataset. Testing perplexity is reported}{table.caption.19}{}}
+\newlabel{tab:fine_tuning_oasst@cref}{{[table][9][2147483647]9}{[1][20][]21}}
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Evaluating GaLore on Belle-1M dataset. Testing perplexity is reported.}}{21}{table.caption.20}\protected@file@percent }
+\newlabel{tab:fine_tuning_belle}{{10}{21}{Evaluating GaLore on Belle-1M dataset. Testing perplexity is reported}{table.caption.20}{}}
+\newlabel{tab:fine_tuning_belle@cref}{{[table][10][2147483647]10}{[1][20][]21}}
+\@writefile{toc}{\contentsline {section}{\numberline {E}Additional Memory Measurements}{21}{appendix.E}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Measuring memory and throughput on LLaMA 1B model.}}{21}{table.caption.21}\protected@file@percent }
+\newlabel{tab:memory_measure_1b}{{11}{21}{Measuring memory and throughput on LLaMA 1B model}{table.caption.21}{}}
+\newlabel{tab:memory_measure_1b@cref}{{[table][11][2147483647]11}{[1][21][]21}}
+\gdef \@abspage@last{21}

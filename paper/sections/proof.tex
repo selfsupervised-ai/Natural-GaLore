@@ -1,0 +1,292 @@
+\def\vec{\mathrm{vec}}
+
+\section{Proofs}
+
+\def\dd{\mathrm{d}}
+\def\tr{\mathrm{tr}}
+\def\rank{\mathrm{rank}}
+
+\subsection{Reversibility}
+\label{sec:reversibility}
+\begin{definition}[Reversiblity~\cite{tian2020understanding}]
+A network $\cN$ that maps input $\vx$ to output $\vy = \cN(\vx)$ is \emph{reversible}, if there exists $L(\vx; W)$ so that  $\vy= L(\vx; W)\vx$, and the backpropagated gradient $\vg_\vx$ satisfies $\vg_\vx = L^\top(\vx; W) \vg_\vy$, where $\vg_\vy$ is the backpropagated gradient at the output $\vy$. Here $L(\vx;W)$ depends on the input $\vx$ and weight $W$ in the network $\cN$. 
+\end{definition}
+
+Note that many layers are reversible, including linear layer (without bias), reversible activations (e.g., ReLU, leaky ReLU, polynomials, etc). Furthermore, they can be combined to construct more complicated architectures: 
+\begin{property}
+If $\cN_1$ and $\cN_2$ are reversible networks, then (\emph{\textbf{Parallel}}) $\vy = \alpha_1 \cN_1(\vx) + \alpha_2 \cN_2(\vx)$ is reversible for constants $\alpha_1$ and $\alpha_2$, and (\emph{\textbf{Composition}}) $\vy = \cN_2(\cN_1(\vx))$ is reversible. 
+\end{property}
+From this property, it is clear that ResNet architecture $\vx + \cN(\vx)$ is reversible, if $\cN$ contains bias-free linear layers and reversible activations, which is often the case in practice. For a detailed analysis, please check Appendix A in~\cite{tian2020understanding}. For architectures like self-attention, one possibility is to leverage JoMA~\cite{tian2023joma} to analyze, and we leave for future work.  
+
+The gradient of chained reversible networks has the following structure:
+\gradientreversible*
+\begin{proof}
+Note that for layered reversible network, we have 
+\begin{equation}
+\cN(\vx) = \cN_L(\cN_{L-1}(...\cN_1(\vx))) = K_L(\vx)K_{L-1}(\vx)\ldots K_1(\vx)\vx 
+\end{equation}
+Let $\vf_l := \cN_l(\cN_{l-1}(\ldots\cN_1(\vx)))$ and $J_l := K_L(\vx)\ldots K_{l+1}(\vx)$, and for linear layer $l$, we can write $\cN(\vx) = J_lW_l \vf_{l-1}$. Therefore, for the linear layer $l$ with weight matrix $W_l$, we have:
+\begin{eqnarray}
+    \dd \phi &=& (\vy - \cN(\vx))^\top \dd \cN(\vx) \\
+    &=& (\vy - \cN(\vx))^\top K_L(\vx)\ldots K_{l+1}(\vx) \dd W_l \vf_{l-1} \ \ +\ \ \mathrm{terms\ not\ related\ to\ }\dd W_l \\
+    &=& (\vy - J_lW_l\vf_{l-1})^\top J_l\dd W_l \vf_{l-1} \\
+    &=& \tr(\dd W_l^\top J_l^\top (\vy-J_lW_l\vf_{l-1})\vf^\top_{l-1})
+\end{eqnarray}
+This gives the gradient of $W_l$:
+\begin{equation}
+    G_l = J_l^\top \vy \vf^\top_{l-1} - J_l^\top J_l W_l \vf_{l-1}\vf^\top_{l-1} 
+\end{equation}
+\end{proof}
+
+\textbf{Softmax Case.} Note that for softmax objective with small logits, we can also prove a similar structure of backpropagated gradient, and thus Theorem~\ref{thm:gradientreversible} can also apply.
+\begin{restatable}[Gradient structure of softmax loss]{lemma}{gradientsoftmax}
+For $K$-way logsoftmax loss $\phi(\vy; \vf) := -\log \left( \frac{\exp(\vy^\top \vf)}{\vone^\top \exp(\vf)}\right)$, let $\hat\vf = P^\perp_\vone \vf$ be the zero-mean version of network output $\vf$, where $P^\perp_\vone := I - \frac{1}{K}\vone\vone^\top$, then we have:
+\begin{equation}
+   -\dd \phi = \vy^\top \dd\hat\vf - \gamma \hat\vf^\top \dd\hat\vf/K + O(\hat\vf^2/K)\dd\hat\vf  
+\end{equation}
+where $\gamma(\vy,\vf) \approx 1$ and $\vy$ is a data label with $\vy^\top \vone = 1$.
+\end{restatable}
+\begin{proof}
+Let $\hat\vf := P^\perp_\vone \vf$ be the zero-mean version of network output $\vf$. Then we have $\vone^\top\hat\vf = 0$ and $\vf = \hat\vf + c\vone$. Therefore, we have: 
+\begin{equation}
+    -\phi = \log \left( \frac{\exp(c)\exp(\vy^\top \hat\vf)}{\exp(c)\vone^\top \exp(\hat\vf)}\right) = \vy^\top\hat\vf - \log(\vone^\top \exp(\hat\vf))
+\end{equation}
+Using the Taylor expansion $\exp(x) = 1 + x + \frac{x^2}{2} + o(x^2)$, we have: 
+\begin{equation}
+    \vone^\top \exp(\hat\vf) = \vone^\top(\vone + \hat\vf + \frac12\hat\vf^2) + o(\hat\vf^2) = K (1 + \hat\vf^\top\hat\vf/2K + o(\hat\vf^2/K))
+\end{equation}
+So
+\begin{equation}
+    -\phi = \vy^\top\hat\vf - \log(1 + \hat\vf^\top\hat\vf/2K + o(\hat\vf^2/K)) - \log K  
+\end{equation}
+Therefore
+\begin{equation}
+    -\dd \phi = \vy^\top\dd \hat\vf - \frac{\gamma}{K} \hat\vf^\top\dd\hat\vf + O\left(\frac{\hat\vf^2}{K}\right)\dd\hat\vf
+\end{equation}
+where $\gamma := (1 + \hat\vf^\top\hat\vf/2K + o(\hat\vf^2/K))^{-1} \approx 1$. 
+\end{proof}
+\textbf{Remarks}. With this lemma, it is clear that for a reversible network $\vf := \cN(\vx) = J_l(\vx) W_l\vf_{l-1}(\vx)$, the gradient $G_l$ of $W_l$ has the following form:
+\begin{equation}
+    G_l = \underbrace{J_lP^\perp_\vone \vy \vf_{l-1}}_A - \underbrace{\gamma J_l^\top P^\perp_\vone J_l}_B W_l \underbrace{\vf_{l-1}\vf_{l-1}^\top / K}_C
+\end{equation}
+
+\def\cV{\mathcal{V}}
+
+\subsection{Gradient becomes low-rank}
+\gradientlowrank*
+\def\vec{\mathrm{vec}}
+\begin{proof}
+We have
+\begin{equation}
+    G_t = \frac{1}{N}\sum_{i=1}^N (A_i - B_i W_t C_i) = \frac{1}{N}\sum_{i=1}^N A_i - B_i(W_{t-1} + \eta G_{t-1})C_i = G_{t-1} - \frac{\eta}{N}\sum_{i=1}^N B_i G_{t-1} C_i
+\end{equation}
+Let $S := \frac{1}{N}\sum_{i=1}^N C_i\otimes B_i$, and $g_t := \vec(G_t) \in \rr^{mn}$ be a vectorized version of the gradient $G_t\in \rr^{m\times n}$. Using $\vec(BWC) = (C^\top \otimes B) \vec(W)$, we have:
+\begin{equation}
+    g_t = (I - \eta S) g_{t-1} 
+\end{equation}
+Now let's bound the stable rank of $G_t$:
+\begin{equation}
+    \text{stable-rank}(G_t) := \frac{\|G_t\|_F^2}{\|G_t\|^2_2} 
+\end{equation}
+Now $\lambda_1 < \lambda_2$ are the smallest two distinct eigenvectors of $S$. The smallest eigenvalue $\lambda_1$ has multiplicity $\kappa_1$. We can decompose $g_0$ into two components, $g_0 = g^{\parallel}_0 + g^\perp_0$, in which $g^{\parallel}_0$ lies in the $\kappa_1$-dimensional eigenspace $\cV_1$ that corresponds to the minimal eigenvalue $\lambda_1$, and $g^\perp_0$ is its residue. Then $\cV_1 \subset \rr^{mn}$ and its orthogonal complements are invariant subspaces under $S$ and thus: 
+\begin{eqnarray}
+    \|G_t\|_F^2 &=& \|g_t\|_2^2 = \|(I - \eta S)^t g_{0}\|^2_2 = \|(I - \eta S)^t g^{\parallel}_{0}\|^2_2 + \|(I - \eta S)^t g^{\perp}_{0}\|^2_2 \\
+    &\le& (1 - \eta \lambda_2)^{2t} \|g^\perp_0\|_2^2 + (1 - \eta \lambda_1)^{2t} \|g^\parallel_0\|_2^2   
+\end{eqnarray}
+On the other hand, by our assumption, $G^\parallel_0$ is rank $L$ and thus has SVD decomposition:
+\begin{equation}
+    G^\parallel_0 = \sum_{l=1}^L c_l \vz_l \vy_l^\top
+\end{equation}
+with orthonormal unit vectors $\{\vz_l\}_{l=1}^L$ and $\{\vy_l\}_{l=1}^L$ and singular values $\{c_l\}_{l=1}^L1$. This means that 
+\begin{equation}
+    g^\parallel_0 = \vec(G^\parallel_0) = \sum_{l=1}^L c_l (\vy_l \otimes \vz_l) =: \sum_{l=1}^L c_l \vv_l
+\end{equation}
+with unit vector $\vv_l := \vy_l \otimes \vz_l \in \cV_1$. It is clear that 
+\begin{equation}
+\vv^\top_l \vv_{l'} = (\vy^\top_l \otimes \vz^\top_l)(\vy_{l'} \otimes \vz_{l'}) = (\vy^\top_l \vy_{l'})(\vz^\top_l \vz_{l'}) = \mathbb{I}(l=l')
+\end{equation}
+
+Therefore, by the definition of spectral norm (or matrix 2-norm), we know it corresponds to the largest singular value, which means:
+\begin{eqnarray}
+    \|G_t\|_2 &=& \max_{\|\vy'\|_2=1,\|\vz'\|_2=1} \vz^{'\top} G_t \vy' \\
+    &\ge& \max_l \vz_l^\top G_t \vy_l = \max_l (\vy_l\otimes \vz_l)^\top g_t \\
+    &=& \max_l \vv_l^\top (1 - \eta S)^t g_0 = (1 - \eta \lambda_1)^t \max_l \vv_l^\top g_0
+\end{eqnarray}
+Note that the last equation is because any $\vv\in \cV_1$ is an eigenvector of $S$ with eigenvalue of $\lambda_1$. 
+
+Since $\vv_l^\top g_0 = \vv_l^\top (g^\perp_0 + g^\parallel_0) = c_l$, $\max_l c_l = \|G^\parallel_0\|_2$ and $\|g^\parallel_0\|_2^2 = \|G^\parallel_0\|_F^2$, we have:
+\begin{equation}
+    \text{stable-rank}(G_t) := \frac{\|G_t\|_F^2}{\|G_t\|^2_2} \le  \text{stable-rank}(G^\parallel_0) + \left(\frac{1-\eta \lambda_2}{1-\eta \lambda_1}\right)^{2t} \frac{\|G^\perp_0\|_F^2}{\|G_0^\parallel\|_2^2} \label{eq:final-sr-bound}
+\end{equation}
+\end{proof}
+
+
+\lowrankmid*
+\begin{proof}
+Let $C_i = \vf_i\vf_i^\top \in \rr^{n\times n}$. Since $N' := \rank(\{\vf_i\}_{i=1}^N) < n$ and $f_i \in \rr^n$, the collections of vectors $\{\vf_i\}_{i=1}^N$ cannot span the entire space $\rr^n$. Let $\{\vu_j\}_{j=1}^{n-N'}$ be the orthonormal bases for the null space of $\{\vf_i\}_{i=1}^N$, and $\{\ve_k\}_{k=1}^m$ be any orthonormal bases for $\rr^m$. Then the product bases $\{\vu_j\otimes \ve_k\}$ form a set of bases for the minimal eigenspace $\cV_1$ of $S$ with the minimal eigenvalue of $0$. Since $B_i$ are full-rank, no extra dimensions exist for $\cV_1$.
+
+Therefore, when we project $G_{t_0}$ onto $\cV_1$, we have:
+\begin{equation}
+    \gzeroproj = \sum_{j=1}^{n-N'}\sum_{k=1}^m c_{jk} \vu_j \ve^\top_k = \sum_{j=1}^{n-N'} 
+ \vu_j \left(\sum_{k=1}^m c_{jk} \ve_k\right)^\top 
+\end{equation}
+and thus $\sr(\gzeroproj) \le \rank(\gzeroproj) \le n - N'$,  
+since stable rank is a lower-bound of the rank. 
+
+On the other hand, $G_t$ can be written as a summation of $N'$ rank-1 matrices, by representing each $\vf_i = \sum_{j=1}^{N'} b_{ij} \vf'_j$ as a linear combination of $\{\vf'_j\}_{j=1}^{N'}$:  
+\begin{equation}
+    G_t = \frac1N \sum_{i=1}^N (\va_i - B_i W_t \vf_i)\left(\sum_{j=1}^{N'} b_{ij} \vf'_j\right)^\top = \frac1N \sum_{j=1}^{N'} \left[\sum_{i=1}^N b_{ij} (\va_i - B_i W_t \vf_i)\right] \vf^{'\top}_j 
+\end{equation}
+and thus has rank at most $N'$. Therefore, when $t$ is sufficiently large so that the second term in Eqn.~\ref{eq:final-sr-bound} is negligible, by Lemma~\ref{lemma:gradientlowrank}, we have (notice that $N' < n$):
+\begin{equation}
+    \sr(G_t) \le \min(n - N', N') \le n / 2
+\end{equation}
+\end{proof}
+
+\lowrankhigh*
+\begin{proof}
+In this case, we have $g^\parallel_0 = \vv\vv^\top g_0 \propto \vv$. Since $\vv = \vy \otimes \vz$, the resulting $G^\parallel_0$ is a rank-1 matrix and thus $\sr(\gzeroproj) = 1$.
+\end{proof}
+
+\subsection{Gradient Low-rank property for Transformers}
+\label{sec:transformer-low-rank}
+Note that Transformers do not belong to the family of reversible networks. However, we can still show that the gradient of the lower layer (i.e., \emph{project-up}) weight $W \in \rr^{m\times n}$ of feed forward network (FFN) becomes low rank over time, using the JoMA framework~\cite{tian2023joma}. Here $m$ is the embedding dimension, and $n$ is the number of hidden nodes in FFNs.
+\begin{restatable}[Gradient of Project-up in Transformer FFNs]{lemma}{gradientlowranktransformer}
+Suppose the embedding matrix $U \in \rr^{m \times M}$ is fixed and column-orthonormal ($M$ is vocabulary size), the activation functions are linear and the backpropagated gradient are stationary~\cite{tian2023joma}, then the training dynamics of transformed project-up matrix $V := U^\top W \in \rr^{M\times n}$ satisfies the following:
+\begin{equation}
+    \dot V = \frac{1}{A} \diag\left(\exp\left(\frac{V \circ V}{2}\right)\vone \right)\Delta \label{eq:V-dynamics}
+\end{equation}
+where $A$ is the normalization factor of softmax, $\circ$ is the Hadamard (element-wise) product and $\Delta$ is defined in the proof. As a result, the gradient of $V$ is ``exponentially more low-rank'' than $V$ itself.  
+\end{restatable}
+\begin{proof}
+Let $\Delta := [\vdelta_1, \ldots, \vdelta_n] \in \rr^{M \times n}$, where $\vdelta_j := \mathbb{E}_{q}[g_j \vx] \in \rr^{M}$. Here $g_j$ is the backpropagated gradient of hidden node $j$ in FFN layer, $\mathbb{E}_q[\cdot]$ is the conditional expectation given the query is token $q$, and $\vx$ is the representation of token distribution in the previous layer of Transformer. Specifically, for intermediate layer, $\vx$ represents the activation output of the previous project-up layer; for the first layer, $\vx$ represents the frequency count of the input tokens. Then following the derivation of Theorem 2~\cite{tian2023joma}, we have for each hidden node $j$ and its weight $\vw_j$, the transformed weight $\vv_j := U^\top \vw_j$ satisfies the following dynamics: 
+\begin{equation}
+    \dot \vv_j = \frac{1}{A} \vdelta_j \circ \exp(\vv_j ^2 / 2)  
+\end{equation}
+where $\vv^2_j := \vv_j \circ \vv_j$ is the element-wise square of a vector and $\circ$ is the Hadamard (element-wise) product. Since $V := [\vv_1, \ldots, \vv_n]$, Eqn.~\ref{eq:V-dynamics} follows. 
+
+Note that the dynamics of $\vv_j$ shows that the direction of $\vv_j$ will change over time (because of $\exp(\vv_j^2/2)$), and it is not clear how such dynamics leads to low-rank $V$ and even more low-rank $\dot V$. For this, we per-row decompose the matrix $V$:
+\begin{equation}
+    V := \left[\begin{array}{c}
+       \vu_1^\top \\
+       \vu_2^\top \\
+       \ldots \\
+       \vu_M^\top 
+    \end{array}\right]
+\end{equation}
+where $\vu_l \in \rr^n$. We can also do the same for $\Delta$:
+\begin{equation}
+    \Delta := \left[
+    \begin{array}{c}
+       \vmu_1^\top \\
+       \vmu_2^\top \\
+       \ldots \\
+       \vmu_M^\top 
+    \end{array}\
+    \right] 
+\end{equation}
+where $\vmu_l \in \rr^n$. Then Eqn.~\ref{eq:V-dynamics} can be decomposed along each row:
+\begin{equation}
+    \dot \vu_l = \frac{1}{A} (e^{\vu^2_l} \cdot \vone)\vmu_l
+\end{equation}
+Then it is clear that $\vu_l$ is always along the direction of $\vmu_l$, which is a fixed quality since the backpropagated gradient $g_j$ and input $\vx$ are assumed to be stationary (and thus  $\vdelta_j := \mathbb{E}_q[g_j\vx]$ is a constant). 
+
+Therefore, let $\vu_l(t) = \alpha_l(t) \vmu_l$ with initial condition of the magnitude $\alpha_l(0) = 0$, and we have:
+\begin{equation}
+    \dot \alpha_l = \frac{1}{A}  e^{\alpha_l^2 \vmu_l^2}\cdot \vone = \frac{1}{A} \sum_{j=1}^n e^{\alpha_l^2 \mu^2_{lj}} \label{eq:alpha-dyn}
+\end{equation}
+where $1\le l\le M$ is the token index. In the following we will show that for different $l$, the growth of $\alpha_l$ can be very different. This leads to very different row norms of $V$ and $\dot V$ over time, leading to their low-rank structures. Note that Eqn.~\ref{eq:alpha-dyn} does not have a close form solution, instead we could estimate its growth:
+\begin{equation}
+    \frac{1}{A} e^{\alpha_l^2 \bar\mu^2_l}
+    \le \dot \alpha_l \le \frac{n}{A} e^{\alpha_l^2 \bar\mu^2_l}
+\end{equation}
+where $\bar\mu^2_l := \max_j \mu^2_{lj}$. 
+
+\def\erf{\mathrm{erf}}
+
+Note that both sides have analytic solutions using Gaussian error functions $\erf(x) = \frac{2}{\sqrt{\pi}}\int_0^x e^{-t^2}\dd t \in [-1, 1]$. Specifically, for dynamic system like $\dot x = C e^{\beta^2 x^2}$, we have
+\begin{equation}
+    e^{-\beta^2 x^2} \dd x = C \dd t 
+\end{equation}
+which gives:
+\begin{equation}
+    \frac{\sqrt{\pi}}{2\beta} \erf\left(\beta x(t)\right) = 
+    \int_0^{x(t)} e^{-\beta^2 y^2} \dd y = C t 
+\end{equation}
+or 
+\begin{equation}
+    x(t) = \frac{1}{\beta} \erf^{-1}\left( \frac{2\beta C}{\sqrt{\pi}}t\right)
+\end{equation}
+
+For inequality like $\dot x \ge C e^{\beta^2 x^2}$ or $\dot x \le C e^{\beta^2 x^2}$, similar equation can be derived. Plug that in, we have:
+\begin{equation}
+    \frac{1}{\bar\mu_l} \erf^{-1}\left(\frac{2\bar\mu_l}{A\sqrt{\pi}}t \right)
+    \le \alpha_l(t) \le \frac{1}{\bar\mu_l} \erf^{-1}\left(\frac{2n\bar\mu_l}{A\sqrt{\pi}}t \right)
+\end{equation}
+Let 
+\begin{equation}
+h(t;a) := \frac{1}{a}\erf^{-1}\left(\frac{2}{\sqrt{\pi}}\frac{a}{A}t\right)   
+\end{equation}
+then $\lim_{t\rightarrow A \sqrt{\pi} / 2a } h(t;a) = +\infty$, and $h(t;\bar\mu_l) \le \alpha_l(t) \le n h(t; n \bar\mu_l)$. 
+
+Let $l^* = \arg\max_l \bar\mu_l^*$ be the row with the largest entry of $\mu$, then if $\bar\mu_l^* > n\bar\mu_l$ for all $l\neq l^*$, then when $t \rightarrow t^* := \frac{A\sqrt{\pi}}{2\bar\mu_l^*}$, the magnitude $\alpha_{l^*}(t) \ge h(t;\bar\mu_{l^*}) \rightarrow +\infty$, while $\alpha_l(t) \le n h (t; n\bar\mu_l)$ still stay finite, since its critical time $t' := \frac{A\sqrt{\pi}}{2n\bar\mu_l} > t^*$. Since $\alpha_l(t)$ controls the magnitude of each row of $V$, This means that $V$ eventually becomes rank-1 and so does $W$. 
+
+Finally, $\dot V$ is even more low rank than $V$, since $\dot \alpha_l$ has $\alpha_l$ in its exponents. 
+\end{proof}
+
+\subsection{Convergence of \lowrank{}}
+\convgpg*
+\begin{proof}
+Using $\vec(AXB) = (B^\top \otimes A)\vec(X)$ where $\otimes$ is the Kronecker product, the gradient assumption can be written as the following:
+\begin{equation}
+    g_t = a_t - S_t w_t 
+\end{equation}
+where $g_t := \vec(G_t) \in \rr^{mn}$, $w_t := \vec(W_t) \in\rr^{mn}$ be the vectorized versions of $G_t$ and $W_t$, $a_t := \frac1N\sum_i \vec(A_{it})$ and $S_t = \frac1N\sum_i C_{it} \otimes B_{it}$ are $mn$-by-$mn$ PSD matrix. 
+
+Using the same notation, it is clear to show that:
+\begin{eqnarray}
+    (Q\otimes P)^\top g_t &=& (Q^\top \otimes P^\top) \vec(G_t) = \vec(P^\top G_t Q) = \vec(R_t) =: r_t \\
+    \tilde g_t := \vec(\tilde G_t) &=& \vec(PP^\top G_t QQ^\top) = (Q\otimes P)\vec(R_t) = (Q\otimes P)r_{t} 
+\end{eqnarray}
+
+Then we derive the recursive update rule for $g_t$:
+\begin{eqnarray}
+    g_t &=& a_t - S_t w_t \\
+    &=& (a_t - a_{t-1}) + (S_{t-1} - S_t) w_t + a_{t-1} - S_{t-1}w_t \\ 
+    &=& e_t + a_{t-1} - S_{t-1}(w_{t-1} + \eta \tilde g_{t-1}) \\
+    &=& e_t + g_{t-1} - \eta S_{t-1} \tilde g_{t-1}  
+\end{eqnarray}
+where $e_t := (a_t - a_{t-1}) + (S_{t-1} - S_t) w_t$. Left multiplying by $(Q\otimes P)^\top$, we have: 
+\begin{eqnarray}
+    r_t = (Q\otimes P)^\top e_t + r_{t-1} - \eta (Q\otimes P)^\top S_{t-1} (Q\otimes P)r_{t-1} 
+\end{eqnarray}
+Let 
+\begin{equation}
+ \hat S_t := (Q\otimes P)^\top S_t (Q\otimes P) = \frac1N \sum_i (Q\otimes P)^\top (C_{it} \otimes B_{it}) (Q\otimes P) = \frac1N \sum_i (Q^\top C_{it}Q) \otimes (P^\top B_{it} P)   
+\end{equation}
+Then we have:
+\begin{equation}
+    r_t = (I - \eta \hat S_{t-1})r_{t-1} + (Q\otimes P)^\top e_t
+\end{equation}
+Now we bound the norm. Note that since $P$ and $Q$ are projection matrices with $P^\top P = I$ and $Q^\top Q = I$, we have: 
+\begin{equation}
+\|(Q\otimes P)^\top e_t\|_2 = \|\vec(P^\top E_t Q)\|_2 = \|P^\top E_t Q\|_F \le \|E_t\|_F
+\end{equation}
+where $E_t := \frac1N\sum_i (A_{it} - A_{i,t-1}) + \frac1N\sum_i (B_{i,t-1} W_t C_{i,t-1} - B_{it} W_t C_{it})$. So we only need to bound $\|E_t\|_F$. Note that:
+\begin{eqnarray}
+    \|A_t - A_{t-1}\|_F &\le& L_A \|W_t - W_{t-1}\|_F = \eta L_A \|\tilde G_{t-1}\|_F \le \eta L_A \|R_{t-1}\|_F \\
+    \|(B_t - B_{t-1})W_t C_{t-1}\|_F &\le& L_B \|W_t - W_{t-1}\|_F \|W_t\|_F \|C_{t-1}\|_F = \eta L_B L_C D^2 \|R_{t-1}\|_F \\ 
+    \|B_t W_t (C_{t-1} - C_t)\|_F &\le& L_C  \|B_t\|_F \|W_t\|_F\|W_{t-1} - W_t\|_F = \eta L_B L_C D^2 \|R_{t-1}\|_F 
+\end{eqnarray}
+
+Now we estimate the minimal eigenvalue of $\hat S_{t-1}$. Let $\bmin_{it} := \lambda_{\min}(P^\top B_{it} P)$ and $\cmin_{it} := \lambda_{\min}(Q^\top C_{it} Q)$, then $\lambda_{\min}((P^\top B_{it} P) \otimes (Q^\top C_{it} Q)) = \bmin_{it}\cmin_{it}$ and for any unit vector $\vv$: 
+\begin{equation}
+    \vv^\top \hat S_t \vv = \frac1N \sum_i \vv^\top \left[(P^\top B_{it} P) \otimes (Q^\top C_{it} Q)\right]\vv \ge \frac1N \sum_i \bmin_{it}\cmin_{it} 
+\end{equation}
+And thus $\lambda_{\min}(\hat S_t) \ge \frac1N \sum_i \bmin_{it}\cmin_{it}$. Therefore, $\lambda_{\max}(I - \eta \hat S_{t-1}) \le 1 - \frac{\eta}{N} \sum_i \bmin_{i,t-1}\cmin_{i,t-1}$. Therefore, let $\kappa_t := \frac1N \sum_i \bmin_{it}\cmin_{it}$ and using the fact that $\|r_t\|_2 = \|R_t\|_F$, we have: 
+\begin{equation}
+    \|R_t\|_F\le \left[1 - \eta (\kappa_{t-1} - L_A - 2L_BL_C D^2)\right] \|R_{t-1}\|_F
+\end{equation}
+and the conclusion follows. 
+\end{proof}
+

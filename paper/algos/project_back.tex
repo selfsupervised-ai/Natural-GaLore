@@ -1,0 +1,12 @@
+\begin{algorithm}[t]
+  \SetAlgoLined
+  \PyCode{def \textbf{project\_back}(low\_rank\_update):} \\
+  \Indp   %
+      \PyComment{Reconstruct full-rank update from low-rank update} \\
+      \PyCode{full\_rank\_update = inverse\_transform(factors, low\_rank\_update)} \\
+      \PyComment{Apply scaling if necessary} \\
+      \PyCode{\textbf{return} full\_rank\_update * scale} \\
+  \Indm   %
+  \caption{\fontsize{8pt}{9pt}\selectfont{Pseudocode for \textbf{project\_back} methods}}
+  \label{alg:project_back_method}
+\end{algorithm}

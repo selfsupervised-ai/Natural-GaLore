@@ -1,0 +1,18 @@
+
+
+
+
+
+\section{Conclusion}
+
+We propose \lowrank{}, a memory-efficient pre-training and fine-tuning strategy for large language models.
+\lowrank{} significantly reduces memory usage by up to 65.5\% in optimizer states while maintaining both efficiency and performance for large-scale LLM pre-training and fine-tuning.
+
+We identify several open problems for \lowrank{}, which include (1) applying \lowrank{} on training of various models such as vision transformers \citep{dosovitskiy2021an} and diffusion models \citep{ho2020denoising}, (2) further enhancing memory efficiency by employing low-memory projection matrices, and (3) exploring the feasibility of elastic data distributed training on low-bandwidth consumer-grade hardware.
+
+We hope that our work will inspire future research on memory-efficient training from the perspective of gradient low-rank projection. 
+We believe that \lowrank{} will be a valuable tool for the community, enabling the training of large-scale models on consumer-grade hardware with limited resources.
+
+\section*{Impact Statement}
+
+This paper aims to improve the memory efficiency of training LLMs in order to reduce the environmental impact of LLM pre-training and fine-tuning. By enabling the training of larger models on hardware with lower memory, our approach helps to minimize energy consumption and carbon footprint associated with training LLMs.

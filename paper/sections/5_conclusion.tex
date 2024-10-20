@@ -1,0 +1,11 @@
+\section{Conclusion}
+
+We have introduced \textit{\lowrank}, a memory-efficient pre-training and fine-tuning strategy for large language models. \textit{\lowrank} significantly reduces memory usage—by up to 65.5\% in optimizer states—while maintaining or even improving performance in large-scale LLM pre-training and fine-tuning tasks. By incorporating second-order information through an efficient approximation of the inverse Empirical Fisher Information Matrix, \textit{\lowrank} enhances convergence rates, especially in regimes with a limited iteration budget.
+
+Importantly, \textit{\lowrank} can serve as a \emph{drop-in replacement} for standard optimizers like AdamW and integrates seamlessly into existing training pipelines. Our experimental results highlight the \textit{reproducibility} and effectiveness of \textit{\lowrank} across various tasks, including pre-training LLaMA models and fine-tuning on the GLUE benchmark, as well as the TinyAgent function calling tasks. This makes it a compelling choice for large-scale pre-training scenarios where both memory efficiency and model performance are critical.
+
+In the future we want to explore (1) further enhancing memory efficiency by employing low-memory and structured projection matrices, and (2) more extensive empirical evaluation on fine-tuning AAS on a wide variety of tasks. We also hope that our work will inspire future research on memory-efficient training methods from the perspective of optimizer state approximation. We believe that \textit{\lowrank} will be a valuable tool for the community, enabling the training of large-scale models on consumer-grade hardware with limited resources.
+
+\section*{Impact Statement}
+
+This work aims to improve the memory efficiency of training LLMs, thereby reducing the environmental impact of LLM pre-training and fine-tuning. By enabling the training of larger models on hardware with lower memory requirements, our approach helps to minimize energy consumption and carbon footprint associated with training LLMs. Furthermore, by making advanced model training more accessible, we contribute to democratizing AI research and development, allowing a broader community to engage with large-scale models without the need for expensive computational resources.

@@ -1,0 +1,46 @@
+
+\newlength\myindent
+\setlength\myindent{2em}
+\newcommand\bindent{%
+  \begingroup
+  \setlength{\itemindent}{\myindent}
+  \addtolength{\algorithmicindent}{\myindent}
+}
+\newcommand\eindent{\endgroup}
+
+
+
+\begin{algorithm}[tb]
+   \caption{Adam with \lowrank}
+   \label{alg:low_rank_adam}
+ \begin{algorithmic}
+   \STATE {\bfseries Input:} A layer weight matrix $W \in \mathbb{R}^{m \times n}$ with $m \leq n$. Step size $\eta$, scale factor $\alpha$, decay rates $\beta_1, \beta_2$, rank $r$, subspace change frequency $T$.
+   \STATE Initialize first-order moment $M_0 \in \mathbb{R}^{n \times r} \gets 0$
+   \STATE Initialize second-order moment $V_0 \in \mathbb{R}^{n \times r} \gets 0$
+   \STATE Initialize step $t \gets 0$
+   \REPEAT
+   \STATE $G_t \in \mathbb{R}^{m \times n} \gets - \nabla_W \phi_t(W_t)$ 
+   \IF{$t \bmod T = 0$}
+   \STATE $U, S, V \gets \text{SVD}(G_t)$
+   \STATE $P_t \gets U[:, :r]$ \hfill \COMMENT{Initialize left projector as $m \leq n$}
+   \ELSE
+   \STATE $P_t \gets P_{t-1}$ \hfill \COMMENT{Reuse the previous projector}
+   \ENDIF
+   \STATE $R_t \gets P_{t}^{\top} G_t$ \hfill \COMMENT{Project gradient into compact space}
+   \\\hrulefill
+   \STATE {\bfseries $\update(R_t)$ by Adam}
+   \bindent
+   \hspace{\algorithmicindent} \STATE $M_t \gets \beta_1 \cdot M_{t-1} + (1 - \beta_1) \cdot R_t$ 
+   \hspace{\algorithmicindent} \STATE $V_t \gets \beta_2 \cdot V_{t-1} + (1 - \beta_2) \cdot R_t^2$ 
+   \hspace{\algorithmicindent} \STATE $M_t \gets M_t / (1 - \beta_1^t)$
+   \hspace{\algorithmicindent} \STATE $V_t \gets V_t / (1 - \beta_2^t)$ 
+   \hspace{\algorithmicindent} \STATE $N_t \gets M_t / (\sqrt{V_t} + \epsilon)$
+   \eindent
+   \\\hrulefill
+   \STATE $\tilde G_t \gets \alpha \cdot P N_t$ \hfill \COMMENT{Project back to original space}
+   \STATE $W_t \gets W_{t-1} + \eta \cdot \tilde G_t$
+   \STATE $t \gets t + 1$
+   \UNTIL{convergence criteria met}
+   \RETURN $W_t$
+ \end{algorithmic}
+\end{algorithm}

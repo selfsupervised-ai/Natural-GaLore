@@ -1,0 +1,22 @@
+\begin{table}[t]
+    \caption{\small{Comparison between \lowrank{} and LoRA. Assume $W \in \mathbb{R}^{m \times n}$ ($m \leq n$), rank $r$.}}
+    
+    \label{tab:lora_compare}
+    \begin{center}
+    \begin{small}
+    \begin{tabular}{lcc}
+    \toprule
+               & \lowrank{} & LoRA \\
+    \midrule
+    Weights          & $mn$   & $mn+mr+nr$ \\
+    Optim States           & $mr + 2nr$   & $2mr + 2nr$  \\
+    \midrule
+    Multi-Subspace   & \cmark   & \xmark \\
+    Pre-Training   & \cmark   & \xmark \\
+    Fine-Tuning   & \cmark   & \cmark \\
+    \bottomrule
+    \end{tabular}
+    \end{small}
+    \end{center}
+\vspace{-6mm}
+\end{table}

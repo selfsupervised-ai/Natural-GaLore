@@ -1,0 +1,17 @@
+\begin{table}[t]
+    \caption{\small{Pre-training LLaMA 7B on C4 dataset for 150K steps. Validation perplexity and memory estimate are reported.}}
+    \label{tab:7b_eval}
+    \centering
+    \begin{tabular}{l|c|cccc}
+    \toprule
+    & \textbf{Mem}        & \textbf{40K} & \textbf{80K} & \textbf{120K} & \textbf{150K} \\
+    \midrule
+    \textbf{8-bit \lowrank{}} & 18G & 17.94 & 15.39 & 14.95 & 14.65 \\
+    8-bit Adam & 26G & 18.09 & 15.47 & 14.83 & 14.61 \\
+    \midrule
+    Tokens (B) & & 5.2 & 10.5 & 15.7 & 19.7 \\
+    \bottomrule
+    \end{tabular}
+    \vskip -5mm
+\end{table}
+

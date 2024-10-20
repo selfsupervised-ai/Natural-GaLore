@@ -1,0 +1,378 @@
+\begin{thebibliography}{45}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Amari(1998)]{amariNaturalGradientWorks1998}
+Shun-ichi Amari.
+\newblock Natural gradient works efficiently in learning.
+\newblock \emph{Neural Computation}, 10\penalty0 (2):\penalty0 251--276, 1998.
+\newblock URL \url{https://ieeexplore.ieee.org/document/6790500}.
+
+\bibitem[Brown et~al.(2020)Brown, Mann, Ryder, Subbiah, Kaplan, Dhariwal,
+  Neelakantan, Shyam, Sastry, Askell, et~al.]{brownLanguageModelsAre2020}
+Tom~B Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared Kaplan, Prafulla
+  Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell,
+  et~al.
+\newblock Language models are few-shot learners.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~33, pp.\  1877--1901, 2020.
+\newblock URL \url{https://arxiv.org/abs/2005.14165}.
+
+\bibitem[Cer et~al.(2017)Cer, Diab, Agirre, Lopez-Gazpio, and
+  Specia]{cer2017semeval}
+Daniel Cer, Mona Diab, Eneko Agirre, I{\~n}igo Lopez-Gazpio, and Lucia Specia.
+\newblock Semeval-2017 task 1: Semantic textual similarity multilingual and
+  crosslingual focused evaluation.
+\newblock In \emph{Proceedings of the 11th International Workshop on Semantic
+  Evaluation (SemEval-2017)}, pp.\  1--14, 2017.
+\newblock \doi{10.18653/v1/S17-2001}.
+\newblock URL \url{https://aclanthology.org/S17-2001}.
+
+\bibitem[Chen et~al.(2016)Chen, Xu, Zhang, and
+  Guestrin]{chenTrainingDeepNets2016}
+Tianqi Chen, Bing Xu, Chiyuan Zhang, and Carlos Guestrin.
+\newblock Training deep nets with sublinear memory cost.
+\newblock In \emph{Proceedings of the 20th International Conference on Machine
+  Learning (ICML)}, 2016.
+\newblock URL \url{https://arxiv.org/abs/1604.06174}.
+
+\bibitem[Chowdhery et~al.(2022)Chowdhery, Narang, Devlin, Bosma, Mishra,
+  Roberts, Barham, Chung, Sutton, Gehrmann,
+  et~al.]{chowdheryPaLMScalingLanguage2022}
+Aakanksha Chowdhery, Sharan Narang, Jacob Devlin, Maarten Bosma, Gaurav Mishra,
+  Adam Roberts, Paul Barham, Hyung~Won Chung, Charles Sutton, Sebastian
+  Gehrmann, et~al.
+\newblock {PaLM}: Scaling language modeling with pathways.
+\newblock \emph{arXiv preprint arXiv:2204.02311}, 2022.
+\newblock URL \url{https://arxiv.org/abs/2204.02311}.
+
+\bibitem[Cosson et~al.(2023)Cosson, Lecouat, Varre, d'Ascoli, and
+  Biroli]{cossonLowRankGradientDescent2023}
+Victor Cosson, Baptiste Lecouat, Arthur Varre, St{\'e}phane d'Ascoli, and
+  Giulio Biroli.
+\newblock Low-rank gradient descent converges and generalizes.
+\newblock \emph{arXiv preprint arXiv:2301.12995}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2301.12995}.
+
+\bibitem[Dagan et~al.(2006)Dagan, Glickman, and Magnini]{dagan2005pascal}
+Ido Dagan, Oren Glickman, and Bernardo Magnini.
+\newblock The {PASCAL} recognising textual entailment challenge.
+\newblock In \emph{Proceedings of the First International Conference on Machine
+  Learning Challenges: Evaluating Predictive Uncertainty, Visual Object
+  Classification, and Recognising Textual Entailment}, pp.\  177--190.
+  Springer, 2006.
+\newblock \doi{10.1007/11736790\_9}.
+\newblock URL \url{https://doi.org/10.1007/11736790_9}.
+
+\bibitem[Dettmers et~al.(2023)Dettmers, Pagnoni, Holtzman, and
+  Zettlemoyer]{dettmersQLoRAEfficientFinetuning2023}
+Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, and Luke Zettlemoyer.
+\newblock {QLoRA}: Efficient finetuning of quantized {LLMs}.
+\newblock \emph{arXiv preprint arXiv:2305.14314}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2305.14314}.
+
+\bibitem[Ding et~al.(2022)Ding, Zheng, Wang, Chen, Liu, Zheng, Qiu, Shen, Ding,
+  and Tang]{dingDeltaTuningComprehensive2022}
+Ning Ding, Xiang Zheng, Yujia Wang, Yifei Chen, Yichi Liu, Haitao Zheng, Xipeng
+  Qiu, Yujun Shen, Bolin Ding, and Jie Tang.
+\newblock Delta tuning: A comprehensive study of parameter efficient methods
+  for pre-trained language models.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~35, pp.\  21016--21029, 2022.
+\newblock URL \url{https://arxiv.org/abs/2203.06904}.
+
+\bibitem[Dolan \& Brockett(2005)Dolan and Brockett]{dolan2005automatically}
+William~B Dolan and Chris Brockett.
+\newblock Automatically constructing a corpus of sentential paraphrases.
+\newblock In \emph{Proceedings of the Third International Workshop on
+  Paraphrasing (IWP2005)}, 2005.
+\newblock URL \url{https://aclanthology.org/I05-5002}.
+
+\bibitem[Erdogan et~al.(2024)Erdogan, Lee, Jha, Kim, Tabrizi, Moon, Hooper,
+  Anumanchipalli, Keutzer, and Gholami]{erdogan2024tinyagent}
+Lutfi~Eren Erdogan, Nicholas Lee, Siddharth Jha, Sehoon Kim, Ryan Tabrizi,
+  Suhong Moon, Coleman Hooper, Gopala Anumanchipalli, Kurt Keutzer, and Amir
+  Gholami.
+\newblock {TinyAgent}: Function calling at the edge.
+\newblock \emph{arXiv preprint arXiv:2409.00608}, 2024.
+\newblock URL \url{https://arxiv.org/abs/2409.00608}.
+
+\bibitem[Gooneratne et~al.(2020)Gooneratne, Wang, Guo, Kanuparthi, Rajan, and
+  Jayasumana]{gooneratneLowrankGradientApproximation2020}
+Shamal Gooneratne, Meng Wang, Zhili Guo, Vamsi~Krishna Kanuparthi, Dinesh
+  Rajan, and Anura~P Jayasumana.
+\newblock Low-rank gradient approximation for multi-task learning.
+\newblock \emph{arXiv preprint arXiv:2011.01679}, 2020.
+\newblock URL \url{https://arxiv.org/abs/2011.01679}.
+
+\bibitem[He et~al.(2021)He, Gao, and Chen]{he2021debertav3}
+Pengcheng He, Jianfeng Gao, and Weizhu Chen.
+\newblock {DeBERTaV3}: Improving {DeBERTa} using {ELECTRA}-style pre-training
+  with gradient-disentangled embedding sharing.
+\newblock \emph{arXiv preprint arXiv:2111.09543}, 2021.
+\newblock URL \url{https://arxiv.org/abs/2111.09543}.
+
+\bibitem[Hu et~al.(2022)Hu, Shen, Wallis, Allen-Zhu, Li, Wang, and
+  Chen]{huLoRALowRankAdaptation2021}
+Edward~J Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean
+  Wang, and Weizhu Chen.
+\newblock {LoRA}: Low-rank adaptation of large language models.
+\newblock In \emph{International Conference on Learning Representations}, 2022.
+\newblock URL \url{https://arxiv.org/abs/2106.09685}.
+
+\bibitem[Huang et~al.(2019)Huang, Cheng, Bapna, Firat, Chen, Chen, Hu, Shen,
+  Krikun, Wu, et~al.]{huangGPipeEfficientTraining2019}
+Yanping Huang, Youlong Cheng, Ankur Bapna, Orhan Firat, Menglong Chen, Denny
+  Chen, Zhifeng Hu, Yuxin Shen, Maxim Krikun, Yonghui Wu, et~al.
+\newblock {GPipe}: Efficient training of giant neural networks using pipeline
+  parallelism.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~32, pp.\  103--112, 2019.
+\newblock URL \url{https://arxiv.org/abs/1811.06965}.
+
+\bibitem[Jiang et~al.(2023)Jiang, Li, Gan, Liu, Chen, Zhu, Li, Wang, Wang, and
+  Liu]{jiangMistralEfficientComposable2023}
+Ye~Jiang, Pengcheng Li, Zhe Gan, Jianfeng Liu, Dongdong Chen, Xiaodong Zhu,
+  Zhangyang Li, Lijuan Wang, Jianfeng Wang, and Zicheng Liu.
+\newblock {Mistral}: Efficient composable inference for large language models.
+\newblock \emph{arXiv preprint arXiv:2305.15334}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2305.15334}.
+
+\bibitem[Kim et~al.(2023)Kim, Moon, Tabrizi, Lee, Mahoney, Keutzer, and
+  Gholami]{kim2023llmcompiler}
+Sehoon Kim, Suhong Moon, Ryan Tabrizi, Nicholas Lee, Michael~W Mahoney, Kurt
+  Keutzer, and Amir Gholami.
+\newblock An {LLM} compiler for parallel function calling.
+\newblock \emph{arXiv preprint arXiv:2312.04511}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2312.04511}.
+
+\bibitem[Kingma \& Ba(2014)Kingma and Ba]{kingmaAdamMethodStochastic2014}
+Diederik~P Kingma and Jimmy Ba.
+\newblock {Adam}: A method for stochastic optimization.
+\newblock \emph{arXiv preprint arXiv:1412.6980}, 2014.
+\newblock URL \url{https://arxiv.org/abs/1412.6980}.
+
+\bibitem[Lialin \& Schatz(2023)Lialin and
+  Schatz]{lialinReLoRAHighRankTraining2023}
+Vladimir Lialin and Arthur Schatz.
+\newblock {ReLoRA}: Low-rank fine-tuning reloaded.
+\newblock \emph{arXiv preprint arXiv:2307.09769}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2307.09769}.
+
+\bibitem[Lin et~al.(2022)Lin, Zhu, and Mao]{lin2022randomized}
+Tianyi Lin, Zhihui Zhu, and Yongyi Mao.
+\newblock Randomized subspace regularized newton method for unconstrained
+  non-convex optimization.
+\newblock \emph{arXiv preprint arXiv:2209.04170}, 2022.
+\newblock URL \url{https://arxiv.org/abs/2209.04170}.
+
+\bibitem[Loshchilov \& Hutter(2017)Loshchilov and
+  Hutter]{loshchilov2017decoupled}
+Ilya Loshchilov and Frank Hutter.
+\newblock Decoupled weight decay regularization.
+\newblock \emph{arXiv preprint arXiv:1711.05101}, 2017.
+\newblock URL \url{https://arxiv.org/abs/1711.05101}.
+
+\bibitem[Martens(2014)]{martensNewPerspectiveNatural2014}
+James Martens.
+\newblock New perspectives on the natural gradient method.
+\newblock \emph{arXiv preprint arXiv:1412.1193}, 2014.
+\newblock URL \url{https://arxiv.org/abs/1412.1193}.
+
+\bibitem[Martens(2020)]{martens2020new}
+James Martens.
+\newblock New insights and perspectives on the natural gradient method.
+\newblock \emph{Journal of Machine Learning Research}, 21:\penalty0 1--76,
+  2020.
+\newblock URL \url{https://www.jmlr.org/papers/volume21/17-678/17-678.pdf}.
+
+\bibitem[Martens \& Grosse(2015)Martens and Grosse]{martens2015optimizing}
+James Martens and Roger Grosse.
+\newblock Optimizing neural networks with kronecker-factored approximate
+  curvature.
+\newblock In \emph{Proceedings of the 32nd International Conference on Machine
+  Learning (ICML)}, pp.\  2408--2417, 2015.
+\newblock URL \url{https://proceedings.mlr.press/v37/martens15.html}.
+
+\bibitem[Rae et~al.(2021)Rae, Borgeaud, Cai, Millican, Hoffmann, Song,
+  Aslanides, Henderson, Ring, Young, et~al.]{raeScalingLanguageModels2021}
+Jack~W Rae, Sebastian Borgeaud, Trevor Cai, Katie Millican, Jordan Hoffmann,
+  Francis Song, John Aslanides, Sarah Henderson, Roman Ring, Susannah Young,
+  et~al.
+\newblock Scaling language models: Methods, analysis \& insights from training
+  gopher.
+\newblock \emph{arXiv preprint arXiv:2112.11446}, 2021.
+\newblock URL \url{https://arxiv.org/abs/2112.11446}.
+
+\bibitem[Raffel et~al.(2020)Raffel, Shazeer, Roberts, Lee, Narang, Matena,
+  Zhou, Li, and Liu]{raffelExploringLimitsTransfer2020}
+Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael
+  Matena, Yanqi Zhou, Wei Li, and Peter~J Liu.
+\newblock Exploring the limits of transfer learning with a unified text-to-text
+  transformer.
+\newblock \emph{Journal of Machine Learning Research}, 21\penalty0
+  (140):\penalty0 1--67, 2020.
+\newblock URL \url{http://jmlr.org/papers/v21/20-074.html}.
+
+\bibitem[Rajbhandari et~al.(2020)Rajbhandari, Rasley, Ruwase, and
+  He]{rajbhandariZeROMemoryOptimizations2020}
+Samyam Rajbhandari, Jeff Rasley, Olatunji Ruwase, and Yuxiong He.
+\newblock {ZeRO}: Memory optimizations toward training trillion parameter
+  models.
+\newblock In \emph{Proceedings of the International Conference for High
+  Performance Computing, Networking, Storage and Analysis}, pp.\  1--16, 2020.
+\newblock URL \url{https://arxiv.org/abs/1910.02054}.
+
+\bibitem[Rajpurkar et~al.(2016)Rajpurkar, Zhang, Lopyrev, and
+  Liang]{rajpurkar2016squad}
+Pranav Rajpurkar, Jian Zhang, Konstantin Lopyrev, and Percy Liang.
+\newblock {SQuAD}: 100,000+ questions for machine comprehension of text.
+\newblock In \emph{Proceedings of the 2016 Conference on Empirical Methods in
+  Natural Language Processing}, pp.\  2383--2392, 2016.
+\newblock \doi{10.18653/v1/D16-1264}.
+\newblock URL \url{https://aclanthology.org/D16-1264}.
+
+\bibitem[Renduchintala et~al.(2023)Renduchintala, Rodriguez, and
+  Creutz]{renduchintalaTiedLoraEnhacingParameter2023}
+Adithya Renduchintala, Pedro Rodriguez, and Mathias Creutz.
+\newblock Tied lora: Enhancing parameter-efficient fine-tuning with tied
+  weights.
+\newblock \emph{arXiv preprint arXiv:2306.13420}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2306.13420}.
+\newblock \href{https://arxiv.org/abs/2306.13420}{arXiv}.
+
+\bibitem[Shazeer(2020)]{shazeerGLUVariantsImprove2020}
+Noam Shazeer.
+\newblock {GLU} variants improve transformer.
+\newblock \emph{arXiv preprint arXiv:2002.05202}, 2020.
+\newblock URL \url{https://arxiv.org/abs/2002.05202}.
+
+\bibitem[Sheng et~al.(2023)Sheng, Han, Zhu, Yang, Sun, and
+  Zhou]{shengSLoRAServingThousands2023}
+Yi~Sheng, Xuefei Han, Xuefeng Zhu, Yuanzhi Yang, Jiani Sun, and Guohui Zhou.
+\newblock {S-LoRA}: Scalable efficient model serving for massive lora models.
+\newblock \emph{arXiv preprint arXiv:2306.01125}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2306.01125}.
+
+\bibitem[Shoeybi et~al.(2019)Shoeybi, Patwary, Puri, LeGresley, Casper, and
+  Catanzaro]{shoeybiMegatronLMTuningScaling2019}
+Mohammad Shoeybi, Mostofa Patwary, Rohan Puri, Patrick LeGresley, Jared Casper,
+  and Bryan Catanzaro.
+\newblock {Megatron-LM}: Training multi-billion parameter language models using
+  model parallelism.
+\newblock \emph{arXiv preprint arXiv:1909.08053}, 2019.
+\newblock URL \url{https://arxiv.org/abs/1909.08053}.
+
+\bibitem[Touvron et~al.(2023)Touvron, Lavril, Izacard, Martinet, Lachaux,
+  Lacroix, Rozi{\`e}re, Goyal, Hambro, Azhar,
+  et~al.]{touvronLlamaOpenFoundation2023}
+Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne
+  Lachaux, Timoth{\'e}e Lacroix, Baptiste Rozi{\`e}re, Naman Goyal, Eric
+  Hambro, Faisal Azhar, et~al.
+\newblock {LLaMA}: Open and efficient foundation language models.
+\newblock \emph{arXiv preprint arXiv:2302.13971}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2302.13971}.
+
+\bibitem[Vogels et~al.(2020)Vogels, Jaggi, and
+  Patrini]{vogelsPowerGossipPracticalLowRank2020}
+Thijs Vogels, Martin Jaggi, and Giorgio Patrini.
+\newblock {PowerGossip}: Practical low-rank communication for decentralized
+  optimization.
+\newblock In \emph{International Conference on Machine Learning}, pp.\
+  10592--10602, 2020.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper/2020/file/a376802c0811f1b9088828288eb0d3f0-Paper.pdf}.
+
+\bibitem[Wang et~al.(2018)Wang, Joshi, Ghosh, and
+  Poor]{wangATOMOCommunicationefficientLearning}
+Shiqiang Wang, Gauri Joshi, Sreeram~K Ghosh, and H~Vincent Poor.
+\newblock {ATOMO}: Communication-efficient learning via atomic sparsification.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~31, pp.\  9850--9861, 2018.
+\newblock URL \url{https://arxiv.org/abs/1806.04090}.
+
+\bibitem[Wang et~al.(2023)Wang, Bai, and
+  Ananiadou]{wangMultiLoRADemocratizingLoRA2023}
+Zihao Wang, Zhen Bai, and Sophia Ananiadou.
+\newblock {Multi-LoRA}: Efficient fine-tuning for democratic {AI}.
+\newblock \emph{arXiv preprint arXiv:2305.14377}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2305.14377}.
+
+\bibitem[Warstadt et~al.(2019)Warstadt, Singh, and Bowman]{warstadt2019neural}
+Alex Warstadt, Amanpreet Singh, and Samuel~R Bowman.
+\newblock Neural network acceptability judgments.
+\newblock \emph{Transactions of the Association for Computational Linguistics},
+  7:\penalty0 625--641, 2019.
+\newblock \doi{10.1162/tacl\_a\_00290}.
+\newblock URL \url{https://doi.org/10.1162/tacl_a_00290}.
+
+\bibitem[Williams et~al.(2018)Williams, Nangia, and Bowman]{williams2018broad}
+Adina Williams, Nikita Nangia, and Samuel~R Bowman.
+\newblock A broad-coverage challenge corpus for sentence understanding through
+  inference.
+\newblock In \emph{Proceedings of the 2018 Conference of the North American
+  Chapter of the Association for Computational Linguistics: Human Language
+  Technologies}, volume~1, pp.\  1112--1122, 2018.
+\newblock \doi{10.18653/v1/N18-1101}.
+\newblock URL \url{https://aclanthology.org/N18-1101}.
+
+\bibitem[Xia et~al.(2024)Xia, Peng, Chen, Li, He, Yang, and
+  Ma]{xiaChainLoRAEfficient2024}
+Tianxiang Xia, Hao Peng, Zheyu Chen, Lemao Li, Zhiyuan He, Zhen Yang, and
+  Wei-Ying Ma.
+\newblock Chain-of-thought lora: Efficient adaptation of large language models.
+\newblock In \emph{Proceedings of the 2024 Conference on Empirical Methods in
+  Natural Language Processing (EMNLP)}, 2024.
+\newblock To appear.
+
+\bibitem[Yang et~al.(2023)Yang, Hu, Xia, Socher, and Li]{yang2023spectral}
+Zhilin Yang, Edward~J Hu, Tianle Xia, Richard Socher, and Yuanzhi Li.
+\newblock Spectral methods in low-rank model adaptation.
+\newblock \emph{arXiv preprint arXiv:2305.14683}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2305.14683}.
+
+\bibitem[Zhang et~al.(2023)]{zhangLORAFAMEMORYEFFICIENTLOWRANK}
+Rui Zhang et~al.
+\newblock {LoRA-FA}: Memory-efficient low-rank adaptation via feature
+  re-alignment.
+\newblock \emph{arXiv preprint arXiv:2302.05653}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2302.05653}.
+
+\bibitem[Zhao et~al.(2024{\natexlab{a}})Zhao, Zhang, Chen, Wang, Anandkumar,
+  and Tian]{zhao2024galore}
+Jiawei Zhao, Zhenyu Zhang, Beidi Chen, Zhangyang Wang, Anima Anandkumar, and
+  Yuandong Tian.
+\newblock {GaLore}: Memory-efficient {LLM} training by gradient low-rank
+  projection.
+\newblock \emph{arXiv preprint arXiv:2403.03507}, 2024{\natexlab{a}}.
+\newblock URL \url{https://arxiv.org/abs/2403.03507}.
+
+\bibitem[Zhao et~al.(2024{\natexlab{b}})Zhao, Zhang,
+  et~al.]{huangLowRankGradientDescent2023}
+Jiawei Zhao, Zhenyu Zhang, et~al.
+\newblock Galore: Low-rank gradient descent: Fast convergence and low memory
+  cost.
+\newblock \emph{International Conference on Machine Learning},
+  2024{\natexlab{b}}.
+\newblock URL \url{https://arxiv.org/abs/2403.03507v2}.
+
+\bibitem[Zhao et~al.(2022)Zhao, Li, and
+  Ma]{zhaoZerOInitializationInitializing2022}
+Shangqian Zhao, Shiyu Li, and Yi~Ma.
+\newblock {ZerO} initialization: Initializing neural networks with zero-valued
+  parameters.
+\newblock \emph{arXiv preprint arXiv:2207.05848}, 2022.
+\newblock URL \url{https://arxiv.org/abs/2207.05848}.
+
+\bibitem[Zhao et~al.(2020)Zhao, Sun, Wang, Zhou, Guo, and
+  Smola]{zhaoExtendingTorchElasticStateful2020}
+Tianshi Zhao, Zhen Sun, Xiaodong Wang, Fei Zhou, Yang Guo, and Alexander~J
+  Smola.
+\newblock Extending torchelastic for stateful training jobs.
+\newblock \emph{arXiv preprint arXiv:2006.06873}, 2020.
+\newblock URL \url{https://arxiv.org/abs/2006.06873}.
+
+\end{thebibliography}
