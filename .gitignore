@@ -8,6 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+.trunk
 build/
 develop-eggs/
 dist/
@@ -180,3 +181,6 @@ Fisher_Efficient_LLM_Training/code/wandb/latest-run
 Fisher_Efficient_LLM_Training/code/.scale_batch_size_1a6fe668-6897-42c4-954d-5abfc533f14c.ckpt
 Fisher_Efficient_LLM_Training/code/wandb/latest-run
 Fisher_Efficient_LLM_Training/code/wandb/latest-run
+
+#paper
+paper/
